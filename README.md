@@ -1,9 +1,13 @@
-Testing work Scanner QRCode
+Testing Work Scanner QRCode
 
-Summury
-Get QRCode
+Summury:
+
+Get QRCode,
+
 Parsing QRCode
+
 View Text
+
 Send message to any human
 
 Use Library:
