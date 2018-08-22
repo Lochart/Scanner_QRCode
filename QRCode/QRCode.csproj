@@ -19,5 +19,7 @@
     <Folder Include="Style\" />
     <Folder Include="Style\Structure_Grid\" />
     <Folder Include="Function\" />
+    <Folder Include="Style\Structure_Label\" />
+    <Folder Include="Dictionary\" />
   </ItemGroup>
 </Project>

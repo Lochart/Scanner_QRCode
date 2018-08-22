@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Collections.Generic;
 
 /*
  * Summury
@@ -10,21 +11,28 @@ namespace QRCode
 {
     public class Payment_Data : ContentPage
     {
-        public Payment_Data()
+        private Dictionary<string, string> dictionary;
+
+        public Payment_Data(Dictionary<string, string> dictionary)
         {
             NavigationPage.SetHasBackButton(this, false);
 
-            Content = new StackLayout
-            {
-                Children = {
-                    new Label { Text = "Hello ContentPage" }
-                }
+            this.dictionary = dictionary;
+
+            var View = new StackLayout{
+                Padding = 16,
+                Spacing = 16
             };
 
+            var Grid = Structure_Grid.Props(dictionary);
 
+            View.Children.Add(Grid);
+
+            var Scroll = new ScrollView();
+            Scroll.Content = View;
+
+            Content = Scroll;
         }
     }
-
-
 }
 

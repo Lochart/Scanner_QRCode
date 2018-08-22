@@ -1,14 +1,16 @@
 ﻿<Properties StartupConfiguration="{7542FAEF-213A-4A2A-876C-72BA54035C5B}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="QRCode/Function/Function.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="QRCode/Pages/Payment data/Payment_Data.cs">
     <Files>
       <File FileName="QRCode.Android/Resources/values/styles.xml" Line="2" Column="1" />
-      <File FileName="QRCode/App.cs" Line="12" Column="54" />
-      <File FileName="QRCode/Pages/Scanner/Scanner.cs" Line="12" Column="17" />
+      <File FileName="QRCode/App.cs" Line="12" Column="38" />
+      <File FileName="QRCode/Pages/Scanner/Scanner.cs" Line="22" Column="1" />
       <File FileName="QRCode.Android/Properties/AndroidManifest.xml" Line="5" Column="5" />
       <File FileName="QRCode.Android/MainActivity.cs" Line="23" Column="35" />
-      <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="1" Column="14" />
-      <File FileName="QRCode/Style/Structure_Grid/Structure_Grid.cs" Line="9" Column="1" />
+      <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="17" Column="10" />
+      <File FileName="QRCode/Style/Structure_Grid/Structure_Grid.cs" Line="28" Column="15" />
       <File FileName="QRCode/Function/Function.cs" Line="27" Column="23" />
+      <File FileName="QRCode/Style/Structure_Label/Structure_Label.cs" Line="23" Column="9" />
+      <File FileName="QRCode/Dictionary/Dictionary_Designation.cs" Line="71" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

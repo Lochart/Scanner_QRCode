@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
-using ZXing;
+using System.Diagnostics;
 
 /*
  * Summury
@@ -15,30 +15,35 @@ namespace QRCode
     {
         public Scanner()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
-
             OnScanResult += Camera;
         }
 
-        private void Camera (Result result){
-            // Parar de escanear
-            IsScanning = false;
+        #region Camera
 
-            // Alert com o código escaneado
-            Device.BeginInvokeOnMainThread(() => {
+        private void Camera(ZXing.Result result)
+        {
+            try
+            {
+                IsScanning = false;
 
                 var dictionary = Function.Parsing_Text(result.Text);
 
-                //Function.Parsing_Text();
+                if (dictionary.Count == 0)
+                    throw new Exception("Расшифровать не удалось");
 
-                //var next_Page = new Payment_Data();
-
-
-                //Navigation.PushAsync(next_Page);
-
-                //DisplayAlert("Código escaneado", result.Text, "OK");
-            });
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    var next_Page = new Payment_Data(dictionary);
+                    Navigation.PushAsync(next_Page);
+                });
+            }
+            catch (Exception exception)
+            {
+                DisplayAlert("Внимание", exception.Message, "OK");
+            }
         }
+
+        #endregion
     }
 }
 
