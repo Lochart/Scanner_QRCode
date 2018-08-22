@@ -2,13 +2,13 @@ Testing Work Scanner QRCode
 
 Summury:
 
-Get QRCode,
+Get QRCode;
 
-Parsing QRCode
+Parsing QRCode;
 
-View Text
+View Text;
 
-Send message to any human
+Send message to any human;
 
 Use Library:
 https://github.com/Redth/ZXing.Net.Mobile
