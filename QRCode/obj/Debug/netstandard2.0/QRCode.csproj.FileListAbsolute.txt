@@ -1,0 +1,10 @@
+/Users/nikolay/Projects/QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.csproj.CoreCompileInputs.cache
+/Users/nikolay/Projects/QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.AssemblyInfoInputs.cache
+/Users/nikolay/Projects/QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.AssemblyInfo.cs
+/Users/nikolay/Projects/QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.csprojResolveAssemblyReference.cache
+/Users/nikolay/Projects/QRCode/QRCode/bin/Debug/netstandard2.0/QRCode.deps.json
+/Users/nikolay/Projects/QRCode/QRCode/bin/Debug/netstandard2.0/QRCode.dll
+/Users/nikolay/Projects/QRCode/QRCode/bin/Debug/netstandard2.0/QRCode.pdb
+/Users/nikolay/Projects/QRCode/QRCode/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/nikolay/Projects/QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.dll
+/Users/nikolay/Projects/QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.pdb

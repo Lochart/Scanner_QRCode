@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{7542FAEF-213A-4A2A-876C-72BA54035C5B}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="QRCode/Function/Function.cs">
+    <Files>
+      <File FileName="QRCode.Android/Resources/values/styles.xml" Line="2" Column="1" />
+      <File FileName="QRCode/App.cs" Line="12" Column="54" />
+      <File FileName="QRCode/Pages/Scanner/Scanner.cs" Line="12" Column="17" />
+      <File FileName="QRCode.Android/Properties/AndroidManifest.xml" Line="5" Column="5" />
+      <File FileName="QRCode.Android/MainActivity.cs" Line="23" Column="35" />
+      <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="1" Column="14" />
+      <File FileName="QRCode/Style/Structure_Grid/Structure_Grid.cs" Line="9" Column="1" />
+      <File FileName="QRCode/Function/Function.cs" Line="27" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.QRCode.Android PreferredExecutionTarget="Android.6f52a901" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+</Properties>
