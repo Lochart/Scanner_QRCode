@@ -8,13 +8,16 @@ namespace QRCode
     {
         #region Custom_Label
 
-        public static Label Custom_Label()
+        public Label Custom_Label(string text)
         {
             var label = new Label
             {
+                Text = text,
                 TextColor = Color.Black,
                 BackgroundColor = Color.White,
-                FontSize = 14
+                FontSize = 14,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand
             };
 
             return label;

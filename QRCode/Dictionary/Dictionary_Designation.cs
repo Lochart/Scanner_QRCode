@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using System.Collections.Generic;
 
 namespace QRCode
 {
-    public class Dictionary_Designation
+    public class Dictionary_Designation 
     {
         #region Designation
 
@@ -14,61 +12,25 @@ namespace QRCode
          * Словарь обозначений псевдомимов
          */
 
-        public Dictionary<string, string> Designation = new Dictionary<string, string>()
+        public Dictionary<string, Dictionary<string, string>> Dictionary_Block;
+
+        public Dictionary_Designation()
         {
-            {"Name","Наименование получателя платежа"},
-            {"PersonalAcc","Номер счета получателя платежа "},
-            {"BankName","Номер счета получателя платежа "},
-            {"BIC","БИК"},
-            {"CorrespAcc","Номер кор./сч. банка получателя платежа"},
-            {"Sum","Сумма платежа, в копейках"},
-            {"Purpose","Наименование платежа (назначение)"},
-            {"PayeeINN","ИНН получателя платежа"},
-            {"DrawerStatus","Статус составителя платежного документа"},
-            {"KPP","КПП получателя платежа"},
-            {"CBC","КБК"},
-            {"OKTMO","Общероссийский классификатор территорий муниципальных образований (ОКТМО)"},
-            {"PaytReason","Основание налогового платежа"},
-            {"ТaxPeriod","Налоговый период"},
-            {"DocNo","Номер документа"},
-            {"DocDate","Дата документа"},
-            {"TaxPaytKind","Тип платежа"},
-            {"LastName","Фамилия плательщика"},
-            {"FirstName","Имя плательщика"},
-            {"MiddleName","Отчество плательщика"},
-            {"PayerAddress","Адрес плательщика"},
-            {"PersonalAccount","Лицевой счет бюджетного получателя"},
-            {"DocIdx","Индекс платежного документа"},
-            {"PensAcc","№ лицевого счета в системе персонифицированного учета в ПФР - СНИЛС"},
-            {"Contract","Номер договора"},
-            {"PersAcc","Номер лицевого счета плательщика в организации (в системе учета ПУ)"},
-            {"Flat","Номер квартиры"},
-            {"Phone","Номер телефона"},
-            {"PayerIdType","Вид ДУЛ плательщика"},
-            {"PayerIdNum","Номер ДУЛ плательщика"},
-            {"ChildFio","Ф.И.О. ребенка/учащегося"},
-            {"BirthDate","Дата рождения"},
-            {"PaymTerm","Срок платежа/дата выставления счета"},
-            {"PaymPeriod","Период оплаты"},
-            {"paymPeriod","Период оплаты"},
-            {"Category","Вид платежа"},
-            {"ServiceName","Код услуги/название прибора учета"},
-            {"CounterId","Номер прибора учета"},
-            {"CounterVal","Показание прибора учета"},
-            {"QuittId","Номер извещения, начисления, счета"},
-            {"QuittDate","Дата извещения/начисления/счета/постановления (для ГИБДД)"},
-            {"InstNum","Номер учреждения (образовательного, медицинского)"},
-            {"ClassNum","Номер группы детсада/класса школы"},
-            {"SpecFio","ФИО преподавателя, специалиста, оказывающего услугу"},
-            {"AddAmount","Сумма страховки/дополнительной услуги/Сумма пени (в копейках)"},
-            {"RuleId","Номер постановления (для ГИБДД)"},
-            {"ExecId","Номер исполнительного производства"},
-            {"RegType","Код вида платежа (например, для платежей в адрес Росреестра)"},
-            {"UIN","Уникальный идентификатор начисления"},
-            {"TechCode","Технический код, рекомендуемый для заполнения поставщиком услуг." +
-                " Может использоваться принимающей организацией для вызова соответствующей " +
-                "обрабатывающей ИТ-системы."}
-        };
+            Dictionary_Block = new Dictionary<string, Dictionary<string, string>>();
+
+            var service = new Dictionary_Service_Block();
+            var required = new Dictionary_Required_Requisites();
+            var additional = new Dictionary_Additional_Requisites();
+
+            Dictionary_Block.Add("Служебный блок", service.Service_Block);
+
+            Dictionary_Block.Add("Блок обязательных реквизитов", 
+                                 required.Required_Requisites);
+
+            Dictionary_Block.Add("Блок дополнительных реквизитов", 
+                                 additional.Additional_Requisites);
+
+        }
 
         #endregion
     }

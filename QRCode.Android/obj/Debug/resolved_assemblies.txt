@@ -4,6 +4,8 @@
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/Java.Interop.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/Mono.Android.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/mscorlib.dll
+/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/Plugin.Messaging.Abstractions.dll
+/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/Plugin.Messaging.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/QRCode.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/System.Core.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.Android/obj/Debug/android/assets/System.dll

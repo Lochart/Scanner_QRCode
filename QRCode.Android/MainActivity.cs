@@ -11,7 +11,8 @@ namespace QRCode.Droid
 {
     [Activity(Label = "QRCode", Icon = "@mipmap/icon", 
               Theme = "@style/MainTheme", MainLauncher = true, 
-              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+              ScreenOrientation = ScreenOrientation.Portrait)]
     
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -26,9 +27,11 @@ namespace QRCode.Droid
             LoadApplication(new App());
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        public override void OnRequestPermissionsResult(
+            int requestCode, string[] permissions, Permission[] grantResults)
         {
-            ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(
+                requestCode, permissions, grantResults);
         }
     }
 }

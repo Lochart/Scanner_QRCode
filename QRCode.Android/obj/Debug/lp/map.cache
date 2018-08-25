@@ -1,5 +1,7 @@
 FastAndroidCamera
 FormsViewGroup
+Plugin.Messaging.Abstractions
+Plugin.Messaging
 QRCode
 System.Runtime
 Xamarin.Android.Arch.Core.Common
