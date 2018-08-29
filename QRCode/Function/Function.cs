@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Text;
 using Xamarin.Forms;
+using ZXing;
 
 namespace QRCode
 {
@@ -26,14 +29,59 @@ namespace QRCode
          * dictionary <string, string>
          */
 
-        public Dictionary<string, string> Parsing_Text(string text)
+        //public Dictionary<string, string> Parsing_Text(byte[] rawBytes)
+        public Dictionary<string, string> Parsing_Text(Result result)
         {
             try
             {
+
+                var utf8 = Encoding.GetEncoding("utf-8");
+                var win1251 = Encoding.GetEncoding("windows-1251");
+                var koi8 = Encoding.GetEncoding("koi8-r");
+
+                var byteSegments = (IList<byte[]>)result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
+
+                int totalLength = 0;
+                foreach (byte[] bs in byteSegments)
+                    totalLength += bs.Length;
+               
+                byte[] resultBytes = new byte[totalLength];
+                int i = 0;
+                foreach (byte[] bs in byteSegments)
+                    foreach (byte b in bs)
+                        resultBytes[i++] = b;
+                        
+
+                var Default = Encoding.Default.GetString(resultBytes.Take(7).ToArray());
+
+                // Набор кодированных знаков, который используется для представления данных платежа.
+                // Задается в виде цифрового признака кодированного набора:
+                //    1 – WIN1251
+                //    2 – UTF8
+                //    3 – КОI8-R
+                var numEncoding = Default.Substring(6, 1);  // Признак набора кодированных знаков
+
+                string text;
+
+                switch (numEncoding){
+                    case "1":
+                        text = win1251.GetString(resultBytes);
+                        break;
+                    case "2":
+                        text = utf8.GetString(resultBytes);
+                        break;
+                    case "3":
+                        text = koi8.GetString(resultBytes);
+                        break;
+                    default:
+                        text = "";
+                        break;
+                }
+
                 var dictionary = new Dictionary<string, string>();
 
                 // Если текст null или состоит только из служебного блока или меньше его, то выходим
-                if (text == null || text.Length <= 8)
+                if (string.IsNullOrEmpty(text) || text.Length <= 8)
                     return dictionary;
 
                 var identifierFormat = text.Substring(0, 2); // Идентификатор формата
@@ -43,20 +91,12 @@ namespace QRCode
 
                 var version = text.Substring(2, 4);          // Версия стандарта
 
-                // Набор кодированных знаков, который используется для представления данных платежа.
-                // Задается в виде цифрового признака кодированного набора:
-                //    1 – WIN1251
-                //    2 – UTF8
-                //    3 – КОI8-R
-                var numEncoding = text.Substring(6, 1);      // Признак набора кодированных знаков
                 var sep = text.Substring(7, 1);              // Разделитель
 
-
-
-                dictionary["IdentifierFormat"] = identifierFormat;
-                dictionary["Version"] = version;
-                dictionary["NumEncoding"] = numEncoding;
-                dictionary["Sep"] = sep;
+                dictionary["identifierformat"] = identifierFormat;
+                dictionary["version"] = version;
+                dictionary["numencoding_" + numEncoding] = numEncoding;
+                dictionary["sep"] = sep;
 
                 // Пропускам служебный блок, оставляя поля платежа
                 text = text.Substring(8);
@@ -67,7 +107,7 @@ namespace QRCode
                     var pair = item.Split('=');
                     if (pair.Length == 2)
                     {
-                        var field = pair[0];
+                        var field = pair[0].ToLower();
                         var value = pair[1];
 
                         dictionary[field] = value;
@@ -103,6 +143,10 @@ namespace QRCode
 
             foreach (var item in source)
             {
+                Debug.WriteLine("value Count " + value.Count);
+
+                Debug.WriteLine("value " + value.Any(x => x.Key == item.Key));
+
                 var any = value.Any(x => x.Key == item.Key);
 
                 if (any)
@@ -183,11 +227,11 @@ namespace QRCode
 
         public string Get_HTML_Props_Table(Dictionary<string, string> source)
         {
-
-            var block = new Dictionary_Designation();
             var body = "";
 
-            foreach (var item in block.Dictionary_Block)
+            var dictionary = new Dictionary_Designation();
+
+            foreach (var item in dictionary.Dictionary_Block)
             {
                 if (item.Key == "Служебный блок")
                     body += Create_HTML_Props_Table(
@@ -200,7 +244,8 @@ namespace QRCode
                         source, item.Value, item.Key);
             }
 
-            body = "<table>" + body + "</table>";
+            body = "<table> " + body + " </table>";
+            Debug.WriteLine(body);
             return body;
         }
 
@@ -219,7 +264,7 @@ namespace QRCode
             string key)
         {
             // Заголовок блока
-            var body = "<tr><th colspan='2'>" + key + "</th></tr>";
+            var body = "<tr><th colspan='2'> " + key + " </th></tr>\n";
 
             foreach (var item in source)
             {
@@ -230,8 +275,8 @@ namespace QRCode
                     var caption_Text = value.First(x => x.Key == item.Key).Value;
 
                     // Название поле и значение поле
-                    string tr = "<tr><td>" + caption_Text + "</td>" +
-                        "<td>" + item.Value + "</td></tr>";
+                    string tr = "<tr><td> " + caption_Text + " </td>" +
+                        "<td> " + item.Value + " </td></tr>\n";
 
                     body += tr;
                 }

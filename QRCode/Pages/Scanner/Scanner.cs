@@ -3,6 +3,7 @@
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 using System.Diagnostics;
+using ZXing;
 
 /*
  * Summury
@@ -15,22 +16,23 @@ namespace QRCode
     {
         private Function function = new Function();
 
-        private ZXingScannerView View;
+        private ZXingScannerView ScannerView;
         private Image Expand;
+        private AbsoluteLayout absoluteLayout;
 
         public Scanner()
         {
-            var absoluteLayout = new AbsoluteLayout();
+            absoluteLayout = new AbsoluteLayout();
             absoluteLayout.BackgroundColor = Color.Transparent;
 
-            View = new ZXingScannerView
+            ScannerView = new ZXingScannerView
             {
                 IsScanning = true,
                 IsAnalyzing = true,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
-            View.OnScanResult += Camera;
+            ScannerView.OnScanResult += Camera;
 
             Expand = new Image
             {
@@ -42,14 +44,41 @@ namespace QRCode
                 HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
-            AbsoluteLayout.SetLayoutFlags(View, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutFlags(View, AbsoluteLayoutFlags.SizeProportional);
-            AbsoluteLayout.SetLayoutBounds(View, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(ScannerView, AbsoluteLayoutFlags.PositionProportional);
+            AbsoluteLayout.SetLayoutFlags(ScannerView, AbsoluteLayoutFlags.SizeProportional);
+            AbsoluteLayout.SetLayoutBounds(ScannerView, new Rectangle(0, 0, 1, 1));
 
             AbsoluteLayout.SetLayoutFlags(Expand, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(Expand, new Rectangle(0.5, 0.5, -1, -1));
 
-            absoluteLayout.Children.Add(View);
+
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Debug.WriteLine("OnDisappearing");
+            ScannerView.IsScanning = false;
+            ScannerView.IsAnalyzing = false;
+        }
+
+        protected override void OnAppearing()
+        {
+            Debug.WriteLine("OnAppearing");
+            Scanning_Analyzing();
+            base.OnAppearing();
+ 
+
+        }
+
+        private void Scanning_Analyzing()
+        {
+            Debug.Write("1");
+            ScannerView.IsScanning = true;
+            ScannerView.IsAnalyzing = true;
+
+            absoluteLayout.Children.Clear();
+            absoluteLayout.Children.Add(ScannerView);
             absoluteLayout.Children.Add(Expand);
 
             Content = absoluteLayout;
@@ -59,35 +88,32 @@ namespace QRCode
 
         private void Camera(ZXing.Result result)
         {
-            if (result != null && !string.IsNullOrEmpty(result.Text))
+            try
             {
-                var dictionary = function.Parsing_Text(result.Text);
+                if (result == null && string.IsNullOrEmpty(result.Text))
+                    throw new Exception("Сканирование отменено");
 
-                if (dictionary.Count != 0)
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        var next_Page = new Payment_Data(dictionary);
-                        Navigation.PushAsync(next_Page);
-                    });
-                else
-                    function.Display_Alert("Внимание", "Сканирование отменено", "ОК");
+                var dictionary = function.Parsing_Text(result);
 
+                if (dictionary.Count == 0)
+                    throw new Exception("Раскодировать не удалось");
+
+                ScannerView.IsScanning = false;
+                ScannerView.IsAnalyzing = false;
+
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    var next_Page = new Payment_Data(dictionary);
+                    Navigation.PushAsync(next_Page);
+                });
             }
-            else
-                function.Display_Alert("Внимание", "Сканирование отменено", "ОК");
+            catch (Exception exception)
+            {
+                function.Display_Alert("Внимание", exception.Message, "ОК");
+            }
         }
 
         #endregion
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        }
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace QRCode
@@ -24,11 +25,12 @@ namespace QRCode
                 Padding = 1
             };
 
-            var block = new Dictionary_Designation();
-
             int row = 0;
 
-            foreach(var item in block.Dictionary_Block){
+            var dictionary = new Dictionary_Designation();
+
+            foreach (var item in dictionary.Dictionary_Block)
+            {
                 if (item.Key == "Служебный блок")
                     row = Props_Field(row, source, item.Value, item.Key, grid);
                 else if (item.Key == "Блок обязательных реквизитов")

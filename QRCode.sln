@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRCode.UITests", "QRCode.UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRCode", "QRCode\QRCode.csproj", "{DE877DB1-8D37-4AAB-81E8-278E92535F6C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{117BA5F6-8C1F-459B-B756-5405363F5E2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestaApp", "TestaApp\TestaApp.csproj", "{17FB7356-7B17-4456-9824-BD167BBB1CF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,5 +89,24 @@ Global
 		{DE877DB1-8D37-4AAB-81E8-278E92535F6C}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
 		{DE877DB1-8D37-4AAB-81E8-278E92535F6C}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
 		{DE877DB1-8D37-4AAB-81E8-278E92535F6C}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Release|iPhone.Build.0 = Release|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8}.AppStore|iPhone.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{17FB7356-7B17-4456-9824-BD167BBB1CF8} = {117BA5F6-8C1F-459B-B756-5405363F5E2F}
 	EndGlobalSection
 EndGlobal

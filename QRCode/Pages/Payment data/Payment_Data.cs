@@ -36,26 +36,9 @@ namespace QRCode
 
             var button = new Structure_Button();
             var Back = button.Custom_Button("Назад");
-
-            //var Back = new Button { 
-            //    Text = "Назад",
-            //    TextColor = Color.White,
-            //    FontSize = 14,
-            //    BackgroundColor = Color.Blue,
-            //    CornerRadius = 25
-            //};
             Back.Clicked += Back_Page;
 
-
             var Send_Email = button.Custom_Button("Отправить на email");
-            //var Send_Email = new Button
-            //{
-            //    Text = "Отправить на email",
-            //    TextColor = Color.White,
-            //    FontSize = 14,
-            //    BackgroundColor = Color.Blue,
-            //    CornerRadius = 25
-            //};
             Send_Email.Clicked += Clicked_Send_Email;
 
             View_Panel_Button.Children.Add(Back);
