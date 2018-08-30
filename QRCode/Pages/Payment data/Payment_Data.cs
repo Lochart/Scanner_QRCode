@@ -70,7 +70,6 @@ namespace QRCode
             //var email = DependencyService.Get<R_Email>();
             //email.OpenEmail(body); // Открыть почту
 
-
             /*
              * Summury
              * Библиотека Xam.Plugins.Messaging

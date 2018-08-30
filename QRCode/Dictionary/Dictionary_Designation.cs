@@ -4,6 +4,15 @@ namespace QRCode
 {
     public class Dictionary_Designation 
     {
+        #region Block
+
+        public string[] Array_Block = {
+            "Служебный блок", "Блок обязательных реквизитов", 
+            "Блок дополнительных реквизитов" 
+        };
+
+        #endregion
+
         #region Designation
 
         /*
@@ -11,7 +20,6 @@ namespace QRCode
          * Dictionary designation aliases
          * Словарь обозначений псевдомимов
          */
-
         public Dictionary<string, Dictionary<string, string>> Dictionary_Block = new Dictionary<string, Dictionary<string, string>>
         {
             {"Служебный блок", Service_Block},
@@ -28,7 +36,6 @@ namespace QRCode
          * Service_Block
          * Служебный блок 
          */
-
         private static readonly Dictionary<string, string> Service_Block = new Dictionary<string, string>
         {
             {"identifierformat","Идентификатор формата"},
@@ -48,7 +55,6 @@ namespace QRCode
          * Required_Requisites
          * Обязательные реквизиты
          */
-
         private static readonly Dictionary<string, string> Required_Requisites = new Dictionary<string, string>
         {
             {"name","Наименование получателя платежа"},
@@ -67,7 +73,6 @@ namespace QRCode
          * Additional_Requisites
          * Дополнительные реквизиты 
          */
-
         private static readonly Dictionary<string, string> Additional_Requisites = new Dictionary<string, string>
         {
             {"sum","Сумма платежа, в копейках"},

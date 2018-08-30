@@ -30,17 +30,17 @@
 /Users/nikolay/.nuget/packages/Xamarin.Forms/3.1.0.697729/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/bin/Debug/netstandard2.0/QRCode.dll
 /Users/nikolay/.nuget/packages/Xamarin.Forms/3.1.0.697729/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll
-/Users/nikolay/.nuget/packages/zxing.net.mobile/2.3.2/lib/Xamarin.iOS10/zxing.portable.dll
+/Users/nikolay/.nuget/packages/xam.plugins.messaging/5.2.0/lib/Xamarin.iOS10/Plugin.Messaging.Abstractions.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Runtime.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Collections.dll
+/Users/nikolay/.nuget/packages/zxing.net.mobile.forms/2.3.2/lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll
+/Users/nikolay/.nuget/packages/zxing.net.mobile/2.3.2/lib/Xamarin.iOS10/zxing.portable.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Text.Encoding.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.IO.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Text.RegularExpressions.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Threading.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Runtime.Extensions.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Globalization.dll
-/Users/nikolay/.nuget/packages/xam.plugins.messaging/5.2.0/lib/Xamarin.iOS10/Plugin.Messaging.Abstractions.dll
-/Users/nikolay/.nuget/packages/zxing.net.mobile.forms/2.3.2/lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll
 /Users/nikolay/.nuget/packages/zxing.net.mobile/2.3.2/lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Threading.Tasks.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.14.0.13/lib/mono/Xamarin.iOS/Facades/System.Diagnostics.Debug.dll

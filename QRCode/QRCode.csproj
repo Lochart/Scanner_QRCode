@@ -13,6 +13,7 @@
   <ItemGroup>
     <Compile Remove="App.xaml.cs" />
     <Compile Remove="Dictionary\Dictionary_Props.cs" />
+    <Compile Remove="Dictionary\Methods.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />

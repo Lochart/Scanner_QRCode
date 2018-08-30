@@ -14,7 +14,6 @@ namespace QRCode
          * Props deel
          * Реквизит доковора
          */
-
         public Grid Props(Dictionary<string, string> source)
         {
             var grid = new Grid
@@ -29,16 +28,10 @@ namespace QRCode
 
             var dictionary = new Dictionary_Designation();
 
-            foreach (var item in dictionary.Dictionary_Block)
-            {
-                if (item.Key == "Служебный блок")
-                    row = Props_Field(row, source, item.Value, item.Key, grid);
-                else if (item.Key == "Блок обязательных реквизитов")
-                    row = Props_Field(row, source, item.Value, item.Key, grid);
-                else if(item.Key == "Блок дополнительных реквизитов")
-                    row = Props_Field(row, source, item.Value, item.Key, grid);
-            }
-
+            foreach (var title in dictionary.Array_Block)
+                row = Props_Field(
+                    row, source, dictionary.Dictionary_Block[title], title, grid);
+           
             return grid;
         }
 

@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
 using System.Diagnostics;
 using ZXing;
+using System.Collections.Generic;
 
 /*
  * Summury
@@ -93,7 +94,9 @@ namespace QRCode
                 if (result == null && string.IsNullOrEmpty(result.Text))
                     throw new Exception("Сканирование отменено");
 
-                var dictionary = function.Parsing_Text(result);
+                var byteSegments = (IList<byte[]>)result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
+
+                var dictionary = function.Parsing_Text(byteSegments);
 
                 if (dictionary.Count == 0)
                     throw new Exception("Раскодировать не удалось");
