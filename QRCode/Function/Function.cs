@@ -26,11 +26,9 @@ namespace QRCode
         /// </summary>
         /// <param name="result"></param>
         /// <returns>byte[]</returns>
-
         public static byte[] Get_Bytes_Result(Result result)
        {
-            var byteSegments = (IList<byte[]>)
-                result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
+            var byteSegments = (IList<byte[]>) result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
 
             int totalLength = 0;
            foreach (byte[] bs in byteSegments)
@@ -63,9 +61,9 @@ namespace QRCode
         {
             try
             {
-                var utf8 = Encoding.GetEncoding("utf-8");
-                var win1251 = Encoding.GetEncoding("windows-1251");
-                var koi8 = Encoding.GetEncoding("koi8-r");
+                var utf8 = Encoding.GetEncoding("utf8");
+                var win1251 = Encoding.GetEncoding("windows1251");
+                var koi8 = Encoding.GetEncoding("koi8r");
 
                 var num_Byte = bytes[6];
                 // Набор кодированных знаков, который используется для представления данных платежа.

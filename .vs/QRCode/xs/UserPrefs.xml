@@ -9,7 +9,7 @@
       <File FileName="QRCode/Style/Structure_Grid/Structure_Grid.cs" Line="10" Column="22" />
       <File FileName="TestaApp/Tests.cs" Line="11" Column="32" />
       <File FileName="TestaApp/AppInitializer.cs" Line="34" Column="1" />
-      <File FileName="TestaApp/NUnitTestClass.cs" Line="17" Column="10" />
+      <File FileName="TestaApp/NUnitTestClass.cs" Line="13" Column="9" />
       <File FileName="QRCode.UITests/AppInitializer.cs" Line="13" Column="1" />
       <File FileName="QRCode/Pages/Scanner/Scanner.cs" Line="17" Column="6" />
       <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="33" Column="1" />
@@ -21,15 +21,7 @@
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="QRCode" expanded="True">
-            <Node name="Tests" expanded="True">
-              <Node name="TestaApp" expanded="True">
-                <Node name="TestaApp" expanded="True">
-                  <Node name="NUnitTestClass" expanded="True" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
+          <Node name="QRCode" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
