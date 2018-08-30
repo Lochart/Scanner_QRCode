@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
@@ -9,7 +8,7 @@ using ZXing;
 
 namespace QRCode
 {
-    public class Function
+    public static class Function
     {
         public static void Display_Alert(
             string header, string message, string button)
@@ -17,18 +16,50 @@ namespace QRCode
             DependencyService.Get<R_DisplayAlert>().ShowAlert(header, message, button);
         }
 
-        #region Parsing_Text
+        #region Get_Bytes_Result
 
         /*
-         * Summury
-         * Parsing text from the received QRCode
-         * Парснг текста полученный из QRCode
-         * 
-         * char |
-         * char =
-         * dictionary <string, string>
-         */
-        public static Dictionary<string, string> Parsing_Text(IList<byte[]> byteSegments)
+        * Summury
+        * Получения массива байтов из ZXing.Result.
+        */
+
+        public static byte[] Get_Bytes_Result(Result result)
+       {
+           var byteSegments = (IList<byte[]>)result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
+
+           int totalLength = 0;
+           foreach (byte[] bs in byteSegments)
+           {
+               totalLength += bs.Length;
+           }
+
+           byte[] resultBytes = new byte[totalLength];
+           int i = 0;
+           foreach (byte[] bs in byteSegments)
+           {
+               foreach (byte b in bs)
+               {
+                   resultBytes[i++] = b;
+               }
+           }
+
+           return resultBytes;
+       }
+
+       #endregion
+
+       #region Parsing_Text
+
+       /*
+        * Summury
+        * Parsing text from the received QRCode
+        * Парснг текста полученный из QRCode
+        * 
+        * char |
+        * char =
+        * dictionary <string, string>
+        */
+        public static Dictionary<string, string> Parsing_Text(byte[] bytes)
         {
             try
             {
@@ -37,42 +68,31 @@ namespace QRCode
                 var win1251 = Encoding.GetEncoding("windows-1251");
                 var koi8 = Encoding.GetEncoding("koi8-r");
 
-                int totalLength = 0;
-                foreach (byte[] bs in byteSegments)
-                    totalLength += bs.Length;
-
-                byte[] resultBytes = new byte[totalLength];
-                int i = 0;
-                foreach (byte[] bs in byteSegments)
-                    foreach (byte b in bs)
-                        resultBytes[i++] = b;
-
-
-                var numEncoding = Encoding.Default.GetString(resultBytes.Take(7).ToArray());
-
+                var num_Byte = bytes[6];
                 // Набор кодированных знаков, который используется для представления данных платежа.
                 // Задается в виде цифрового признака кодированного набора:
                 //    1 – WIN1251
                 //    2 – UTF8
                 //    3 – КОI8-R
-                numEncoding = numEncoding.Substring(6, 1);  // Признак набора кодированных знаков
+                const byte IS_WIN1251 = 49; // "1" в байтах это код 49
+                const byte IS_UTF8 = 50; // "2" в байтах это код 50
+                const byte IS_КОI8_R = 51; // "3" в байтах это код 51
 
                 string text;
 
-                switch (numEncoding)
+                switch (num_Byte)
                 {
-                    case "1":
-                        text = win1251.GetString(resultBytes);
+                    case IS_WIN1251:
+                        text = win1251.GetString(bytes);
                         break;
-                    case "2":
-                        text = utf8.GetString(resultBytes);
+                    case IS_UTF8:
+                        text = utf8.GetString(bytes);
                         break;
-                    case "3":
-                        text = koi8.GetString(resultBytes);
+                    case IS_КОI8_R:
+                        text = koi8.GetString(bytes);
                         break;
                     default:
-                        text = "";
-                        break;
+                        throw new Exception("Неправильный формат!");
                 }
 
                 var dictionary = new Dictionary<string, string>();
@@ -86,9 +106,11 @@ namespace QRCode
                 if (identifierFormat != "ST")
                     throw new Exception("Неправильный индетификатор формата");
 
-                var version = text.Substring(2, 4);          // Версия стандарта
+                var version = text.Substring(2, 4); // Версия стандарта
 
-                var sep = text.Substring(7, 1);              // Разделитель
+                var numEncoding = text.Substring(6, 1);  // Признак набора кодированных знаков
+
+                var sep = text.Substring(7, 1); // Разделитель
 
                 dictionary["identifierformat"] = identifierFormat;
                 dictionary["version"] = version;

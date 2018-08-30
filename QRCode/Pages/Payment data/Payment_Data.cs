@@ -31,8 +31,7 @@ namespace QRCode
                 Orientation = StackOrientation.Horizontal 
             };
 
-            var structure_Grid = new Structure_Grid();
-            var Grid = structure_Grid.Props(dictionary);
+            var Grid = Structure_Grid.Props(dictionary);
 
             var button = new Structure_Button();
             var Back = button.Custom_Button("Назад");

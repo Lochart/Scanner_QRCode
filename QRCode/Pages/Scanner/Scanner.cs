@@ -15,8 +15,6 @@ namespace QRCode
 {
     public partial class Scanner : ContentPage
     {
-        private Function function = new Function();
-
         private ZXingScannerView ScannerView;
         private Image Expand;
         private AbsoluteLayout absoluteLayout;
@@ -86,9 +84,9 @@ namespace QRCode
                 if (result == null && string.IsNullOrEmpty(result.Text))
                     throw new Exception("Сканирование отменено");
 
-                var byteSegments = (IList<byte[]>)result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
+                var bytes = Function.Get_Bytes_Result(result);
 
-                var dictionary = Function.Parsing_Text(byteSegments);
+                var dictionary = Function.Parsing_Text(bytes);
 
                 if (dictionary.Count == 0)
                     throw new Exception("Раскодировать не удалось");

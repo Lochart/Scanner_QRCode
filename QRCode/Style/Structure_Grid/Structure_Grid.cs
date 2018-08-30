@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace QRCode
 {
-    public class Structure_Grid 
+    public static class Structure_Grid 
     {
 
         #region Props
@@ -14,7 +14,7 @@ namespace QRCode
          * Props deel
          * Реквизит доковора
          */
-        public Grid Props(Dictionary<string, string> source)
+        public static Grid Props(Dictionary<string, string> source)
         {
             var grid = new Grid
             {
