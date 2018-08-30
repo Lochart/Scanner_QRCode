@@ -8,14 +8,13 @@ namespace TestaApp
     [TestFixture]
     public class NUnitTestClass
     {
-        private IList<byte[]> list_Bite;
-
-        private Dictionary<string, string> source;
+        //private IList<byte[]> list_Bite;
+        private byte[] bytes_QRCode;
+        private static Dictionary<string, string> source;
 
         [SetUp]
         public void Data_List_Bite()
         {
-            this.list_Bite = new List<byte[]>();
             byte[] bytes = { 83, 84, 48, 48,  48, 49, 50, 124, 78, 97, 109,
                 101, 61, 208, 158, 208, 158, 208, 158, 34, 208, 163, 208, 150,
                 208, 173, 208, 154, 34, 208, 148, 208, 190, 208, 188, 208, 190,
@@ -50,26 +49,7 @@ namespace TestaApp
                 150, 208, 154, 208, 165
             };
 
-            list_Bite.Add(bytes);
-
-            source = new Dictionary<string, string>
-            {
-                {"identifierformat", "ST"},
-                {"version", "0001"},
-                { "numencoding_2","2"},
-                { "sep","|"},
-                {"name","ООО УЖЭК Домоуправ"},
-                {"personalacc","40702810872000012705"},
-                {"bankname","ПАО Сбербанк России"},
-                {"bic","047501602"},
-                {"correspacc","30101810700000000602"},
-                {"lastname","Чигорин"},
-                {"firstname","Федор"},
-                {"Middlename"," 06.2017"},
-                {"payeraddress","ул.Жукова, д.25 / Кап.р, к.14"},
-                {"sum","843505"},
-                {"purpose","Коммунальные услуги, ЖКХ"}
-            };
+            bytes_QRCode = bytes;
         }
 
         [Test]
@@ -77,15 +57,13 @@ namespace TestaApp
         {
             try
             {
-                var function = new Function();
-
-                var dictionary = function.Parsing_Text(list_Bite);
+                var dictionary = Function.Parsing_Text(bytes_QRCode);
 
                 if (dictionary.Count == 0)
                     Assert.AreEqual(0, dictionary.Count);
 
                 Assert.AreNotEqual(0, dictionary.Count);
-
+                source = dictionary;
             }
             catch (Exception exception)
             {
@@ -96,12 +74,9 @@ namespace TestaApp
         [Test]
         public void Get_HTML_Props_Table()
         {
-
             try
             {
-                var function = new Function();
-
-                var result = function.Get_HTML_Props_Table(source);
+                var result = Function.Get_HTML_Props_Table(source);
 
                 if(string.IsNullOrEmpty(result))
                     Assert.IsNullOrEmpty(result);

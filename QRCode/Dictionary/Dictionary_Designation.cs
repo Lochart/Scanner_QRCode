@@ -31,9 +31,9 @@ namespace QRCode
         {
             {"identifierformat","Идентификатор формата"},
             {"version","Идентификатор формата"},
-            {"numencoding_1","Кодированный набор WIN1251"},
-            {"numencoding_2","Кодированный набор UTF-8"},
-            {"numencoding_3","Кодированный набор KOI8-R"},
+            {"numencodingWIN1251","Кодированный набор WIN1251"},
+            {"numencodingUTF-8","Кодированный набор UTF-8"},
+            {"numencodingKOI8-R","Кодированный набор KOI8-R"},
             {"sep","Разделитель реквизитов платежа"}
         };
 

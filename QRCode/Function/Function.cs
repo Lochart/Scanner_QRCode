@@ -18,31 +18,31 @@ namespace QRCode
 
         #region Get_Bytes_Result
 
-        /*
-        * Summury
-        * Получения массива байтов из ZXing.Result.
-        */
+        /// <summary>
+        /// Функция для получения напрямую массива байтов из ZXing.Result.
+        /// Стандартная реализация ZXing.Result отдает строку, но не байты, по которым строка была создана.
+        /// 
+        /// Алгоритм в функции был переписан из алгоритма для Java: https://stackoverflow.com/a/4981787/5909792
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns>byte[]</returns>
 
         public static byte[] Get_Bytes_Result(Result result)
        {
-           var byteSegments = (IList<byte[]>)result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
+            var byteSegments = (IList<byte[]>)
+                result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
 
-           int totalLength = 0;
+            int totalLength = 0;
            foreach (byte[] bs in byteSegments)
-           {
                totalLength += bs.Length;
-           }
-
+          
            byte[] resultBytes = new byte[totalLength];
            int i = 0;
-           foreach (byte[] bs in byteSegments)
-           {
-               foreach (byte b in bs)
-               {
-                   resultBytes[i++] = b;
-               }
-           }
 
+           foreach (byte[] bs in byteSegments)
+               foreach (byte b in bs)
+                   resultBytes[i++] = b;
+           
            return resultBytes;
        }
 
@@ -63,7 +63,6 @@ namespace QRCode
         {
             try
             {
-
                 var utf8 = Encoding.GetEncoding("utf-8");
                 var win1251 = Encoding.GetEncoding("windows-1251");
                 var koi8 = Encoding.GetEncoding("koi8-r");
@@ -79,17 +78,21 @@ namespace QRCode
                 const byte IS_КОI8_R = 51; // "3" в байтах это код 51
 
                 string text;
+                string numencoding;
 
                 switch (num_Byte)
                 {
                     case IS_WIN1251:
                         text = win1251.GetString(bytes);
+                        numencoding = "numencodingWIN1251";
                         break;
                     case IS_UTF8:
                         text = utf8.GetString(bytes);
+                        numencoding = "numencodingUTF-8";
                         break;
                     case IS_КОI8_R:
                         text = koi8.GetString(bytes);
+                        numencoding = "numencodingKOI8-R";
                         break;
                     default:
                         throw new Exception("Неправильный формат!");
@@ -114,7 +117,7 @@ namespace QRCode
 
                 dictionary["identifierformat"] = identifierFormat;
                 dictionary["version"] = version;
-                dictionary["numencoding_" + numEncoding] = numEncoding;
+                dictionary[numencoding] = numEncoding;
                 dictionary["sep"] = sep;
 
                 // Пропускам служебный блок, оставляя поля платежа
@@ -238,46 +241,31 @@ namespace QRCode
          */
         public static string Get_HTML_Props_Table(Dictionary<string, string> source)
         {
-            var body = "";
+            var body = "<table>";
 
-            foreach (var item in Dictionary_Designation.Dictionary_Block)
-                body += Create_HTML_Props_Table(source, item.Key, item.Value);
+            foreach (var item in Dictionary_Designation.Dictionary_Block){
 
-            body = "<table> " + body + " </table>";
-            Debug.WriteLine(body);
-            return body;
-        }
+                var title = item.Key;
+                var value = item.Value;
 
-        #endregion
+                body += "<tr><th colspan='2'> " + title + " </th></tr>\n";
 
-        #region Create_HTML_Props_Table
+                foreach (var field in source)
+                {
+                    if (!value.ContainsKey(field.Key))
+                        continue;
 
-        /*
-         * Summury
-         * Create html props table
-         * Содаем html реквезит таблицы
-         */
-        private static string Create_HTML_Props_Table(
-            Dictionary<string, string> source, string key,
-            Dictionary<string, string> value)
-        {
-            // Заголовок блока
-            var body = "<tr><th colspan='2'> " + key + " </th></tr>\n";
+                    var caption_Text = value[field.Key];
 
-            foreach (var item in source)
-            {
-                if (!value.ContainsKey(item.Key))
-                    continue;
-
-                var caption_Text = value[item.Key];
-
-                // Название поле и значение поле
-                string tr = "<tr><td> " + caption_Text + " </td>" +
-                    "<td> " + item.Value + " </td></tr>\n";
-
-                body += tr;
+                    // Название поле и значение поле
+                    body += String.Format(
+                        "<tr><td> {0}  </td><td> {1} </td></tr>\n", 
+                        caption_Text, field.Value);
+                }
             }
 
+            body += "</table>";
+            Debug.WriteLine(body);
             return body;
         }
 
