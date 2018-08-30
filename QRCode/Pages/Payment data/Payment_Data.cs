@@ -60,8 +60,7 @@ namespace QRCode
 
         private void Clicked_Send_Email(object sender, EventArgs e)
         {
-            var function = new Function();
-            var body = function.Get_HTML_Props_Table(dictionary);
+            var body = Function.Get_HTML_Props_Table(dictionary);
 
             /*
              * Summury

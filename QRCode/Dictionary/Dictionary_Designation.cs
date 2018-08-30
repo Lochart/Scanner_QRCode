@@ -2,41 +2,32 @@
 
 namespace QRCode
 {
-    public class Dictionary_Designation 
+    public class Dictionary_Designation
     {
-        #region Block
-
-        public string[] Array_Block = {
-            "Служебный блок", "Блок обязательных реквизитов", 
-            "Блок дополнительных реквизитов" 
-        };
-
-        #endregion
-
-        #region Designation
-
-        /*
-         * Summury 
-         * Dictionary designation aliases
-         * Словарь обозначений псевдомимов
-         */
-        public Dictionary<string, Dictionary<string, string>> Dictionary_Block = new Dictionary<string, Dictionary<string, string>>
+        public static class EnumBlock
         {
-            {"Служебный блок", Service_Block},
-            {"Блок обязательных реквизитов", Required_Requisites},
-            {"Блок дополнительных реквизитов", Additional_Requisites},
-        };
+            public const string
+                Service = "Служебный блок",
+                Required = "Блок обязательных реквизитов",
+                Additional = "Блок дополнительных реквизитов";
+        }
 
+        #region Block
+        public static readonly string[] Array_Block = {
+            EnumBlock.Service,
+            EnumBlock.Required,
+            EnumBlock.Additional
+        };
         #endregion
 
         #region Service_Block
 
         /*
-         * Summury 
+         * Summury
          * Service_Block
-         * Служебный блок 
+         * Служебный блок
          */
-        private static readonly Dictionary<string, string> Service_Block = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> Service_Block = new Dictionary<string, string>
         {
             {"identifierformat","Идентификатор формата"},
             {"version","Идентификатор формата"},
@@ -51,11 +42,11 @@ namespace QRCode
         #region Required_Requisites
 
         /*
-         * Summury 
+         * Summury
          * Required_Requisites
          * Обязательные реквизиты
          */
-        private static readonly Dictionary<string, string> Required_Requisites = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> Required_Requisites = new Dictionary<string, string>
         {
             {"name","Наименование получателя платежа"},
             {"personalacc","Номер счета получателя платежа"},
@@ -69,11 +60,11 @@ namespace QRCode
         #region Additional_Requisites
 
         /*
-         * Summury 
+         * Summury
          * Additional_Requisites
-         * Дополнительные реквизиты 
+         * Дополнительные реквизиты
          */
-        private static readonly Dictionary<string, string> Additional_Requisites = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> Additional_Requisites = new Dictionary<string, string>
         {
             {"sum","Сумма платежа, в копейках"},
             {"purpose","Наименование платежа (назначение)"},
@@ -125,7 +116,20 @@ namespace QRCode
 
         #endregion
 
+        #region Designation
 
+        /*
+         * Summury
+         * Dictionary designation aliases
+         * Словарь обозначений псевдомимов
+         */
+        public static readonly Dictionary<string, Dictionary<string, string>> Dictionary_Block = new Dictionary<string, Dictionary<string, string>>
+        {
+            {EnumBlock.Service, Service_Block},
+            {EnumBlock.Required, Required_Requisites},
+            {EnumBlock.Additional, Additional_Requisites},
+        };
+
+        #endregion
     }
 }
-

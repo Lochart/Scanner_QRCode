@@ -11,7 +11,7 @@ namespace QRCode
 {
     public class Function
     {
-        public void Display_Alert(
+        public static void Display_Alert(
             string header, string message, string button)
         {
             DependencyService.Get<R_DisplayAlert>().ShowAlert(header, message, button);
@@ -28,7 +28,7 @@ namespace QRCode
          * char =
          * dictionary <string, string>
          */
-        public Dictionary<string, string> Parsing_Text(IList<byte[]> byteSegments)
+        public static Dictionary<string, string> Parsing_Text(IList<byte[]> byteSegments)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace QRCode
          * Add props field in grid
          * Добавление реквезитов полей в таблицу
          */
-        public int Props_Field(int row, Dictionary<string, string> source,
+        public static int Props_Field(int row, Dictionary<string, string> source,
                                 Dictionary<string, string> value, string key,
                                 Grid grid)
         {
@@ -184,7 +184,7 @@ namespace QRCode
          * Create view header block зrops
          * Содаем вид заголовка блока реквезита
          */
-        private void Create_Header_Block_Props(int row, string text, Grid grid)
+        private static void Create_Header_Block_Props(int row, string text, Grid grid)
         {
             var view_Header = new StackLayout();
             view_Header.BackgroundColor = Color.White;
@@ -214,13 +214,11 @@ namespace QRCode
          * Get html props table
          * Получаем html реквезит таблицы
          */
-        public string Get_HTML_Props_Table(Dictionary<string, string> source)
+        public static string Get_HTML_Props_Table(Dictionary<string, string> source)
         {
             var body = "";
 
-            var dictionary = new Dictionary_Designation();
-
-            foreach (var item in dictionary.Dictionary_Block)
+            foreach (var item in Dictionary_Designation.Dictionary_Block)
                 body += Create_HTML_Props_Table(source, item.Key, item.Value);
 
             body = "<table> " + body + " </table>";
@@ -237,7 +235,7 @@ namespace QRCode
          * Create html props table
          * Содаем html реквезит таблицы
          */
-        private string Create_HTML_Props_Table(
+        private static string Create_HTML_Props_Table(
             Dictionary<string, string> source, string key,
             Dictionary<string, string> value)
         {
@@ -249,7 +247,7 @@ namespace QRCode
                 if (!value.ContainsKey(item.Key))
                     continue;
 
-                var caption_Text = value.First(x => x.Key == item.Key).Value;
+                var caption_Text = value[item.Key];
 
                 // Название поле и значение поле
                 string tr = "<tr><td> " + caption_Text + " </td>" +

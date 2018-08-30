@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace QRCode
 {
-    public class Structure_Grid : Function
+    public class Structure_Grid 
     {
 
         #region Props
@@ -26,12 +26,18 @@ namespace QRCode
 
             int row = 0;
 
-            var dictionary = new Dictionary_Designation();
+            row = Function.Props_Field(
+                row, source, Dictionary_Designation.Service_Block, 
+                Dictionary_Designation.EnumBlock.Service, grid);
 
-            foreach (var title in dictionary.Array_Block)
-                row = Props_Field(
-                    row, source, dictionary.Dictionary_Block[title], title, grid);
-           
+            row = Function.Props_Field(
+                row, source, Dictionary_Designation.Required_Requisites, 
+                Dictionary_Designation.EnumBlock.Required, grid);
+
+            row = Function.Props_Field(
+                row, source, Dictionary_Designation.Additional_Requisites, 
+                Dictionary_Designation.EnumBlock.Additional, grid);
+
             return grid;
         }
 

@@ -1,28 +1,29 @@
 ﻿<Properties StartupConfiguration="{7542FAEF-213A-4A2A-876C-72BA54035C5B}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.Tests.TestaApp PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.QRCode.UITests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TestaApp/NUnitTestClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="QRCode/Pages/Scanner/Scanner.cs">
     <Files>
       <File FileName="QRCode/Style/Structure_Button/Structure_Button.cs" Line="9" Column="30" />
       <File FileName="QRCode.iOS/AppDelegate.cs" Line="1" Column="1" />
       <File FileName="QRCode.iOS/Entitlements.plist" />
-      <File FileName="QRCode/Style/Structure_Grid/Structure_Grid.cs" Line="32" Column="23" />
+      <File FileName="QRCode/Style/Structure_Grid/Structure_Grid.cs" Line="39" Column="68" />
       <File FileName="TestaApp/Tests.cs" Line="11" Column="32" />
       <File FileName="TestaApp/AppInitializer.cs" Line="34" Column="1" />
-      <File FileName="TestaApp/NUnitTestClass.cs" Line="38" Column="77" />
+      <File FileName="TestaApp/NUnitTestClass.cs" Line="18" Column="1" />
       <File FileName="QRCode.UITests/AppInitializer.cs" Line="13" Column="1" />
-      <File FileName="QRCode/Pages/Scanner/Scanner.cs" Line="99" Column="46" />
-      <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="64" Column="41" />
-      <File FileName="QRCode/Dictionary/Dictionary_Designation.cs" Line="79" Column="12" />
+      <File FileName="QRCode/Pages/Scanner/Scanner.cs" Line="22" Column="47" />
+      <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="62" Column="10" />
+      <File FileName="QRCode/Renderer/R_Email.cs" Line="1" Column="1" />
+      <File FileName="QRCode/Renderer/R_DisplayAlert.cs" Line="1" Column="1" />
+      <File FileName="QRCode/Function/Function.cs" Line="14" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="QRCode" expanded="True" selected="True">
+          <Node name="QRCode" expanded="True">
             <Node name="Tests" expanded="True">
               <Node name="TestaApp" expanded="True">
                 <Node name="References" expanded="True" />
-                <Node name="Packages" expanded="True" />
               </Node>
             </Node>
             <Node name="QRCode" expanded="True">
@@ -30,7 +31,9 @@
               <Node name="Function" expanded="True" />
               <Node name="Pages" expanded="True">
                 <Node name="Payment data" expanded="True" />
-                <Node name="Scanner" expanded="True" />
+                <Node name="Scanner" expanded="True">
+                  <Node name="Scanner.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="Renderer" expanded="True" />
               <Node name="Style" expanded="True">
@@ -44,16 +47,7 @@
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="QRCode" expanded="True">
-            <Node name="Tests" expanded="True">
-              <Node name="TestaApp" expanded="True">
-                <Node name="TestaApp" expanded="True">
-                  <Node name="NUnitTestClass" expanded="True" selected="True" />
-                  <Node name="Tests" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
+          <Node name="QRCode" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

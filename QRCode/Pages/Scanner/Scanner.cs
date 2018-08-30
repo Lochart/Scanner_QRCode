@@ -51,8 +51,6 @@ namespace QRCode
 
             AbsoluteLayout.SetLayoutFlags(Expand, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(Expand, new Rectangle(0.5, 0.5, -1, -1));
-
-
         }
 
         protected override void OnDisappearing()
@@ -68,16 +66,10 @@ namespace QRCode
             Debug.WriteLine("OnAppearing");
             Scanning_Analyzing();
             base.OnAppearing();
- 
-
         }
 
         private void Scanning_Analyzing()
         {
-            Debug.Write("1");
-            ScannerView.IsScanning = true;
-            ScannerView.IsAnalyzing = true;
-
             absoluteLayout.Children.Clear();
             absoluteLayout.Children.Add(ScannerView);
             absoluteLayout.Children.Add(Expand);
@@ -96,7 +88,7 @@ namespace QRCode
 
                 var byteSegments = (IList<byte[]>)result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
 
-                var dictionary = function.Parsing_Text(byteSegments);
+                var dictionary = Function.Parsing_Text(byteSegments);
 
                 if (dictionary.Count == 0)
                     throw new Exception("Раскодировать не удалось");
@@ -112,7 +104,7 @@ namespace QRCode
             }
             catch (Exception exception)
             {
-                function.Display_Alert("Внимание", exception.Message, "ОК");
+                Function.Display_Alert("Внимание", exception.Message, "ОК");
             }
         }
 

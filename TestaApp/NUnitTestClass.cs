@@ -1,12 +1,11 @@
 ﻿using NUnit.Framework;
 using System;
 using QRCode;
-using System.Diagnostics;
 using System.Collections.Generic;
 
 namespace TestaApp
 {
-    [TestFixture()]
+    [TestFixture]
     public class NUnitTestClass
     {
         private IList<byte[]> list_Bite;
