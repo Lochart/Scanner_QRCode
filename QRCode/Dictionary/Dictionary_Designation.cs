@@ -23,9 +23,10 @@ namespace QRCode
         #region Service_Block
 
         /*
-         * Summury
+         *  <summary>
          * Service_Block
          * Служебный блок
+         *  </summary>
          */
         public static readonly Dictionary<string, string> Service_Block = new Dictionary<string, string>
         {
@@ -42,9 +43,10 @@ namespace QRCode
         #region Required_Requisites
 
         /*
-         * Summury
+         *  <summary>
          * Required_Requisites
          * Обязательные реквизиты
+         *  </summary>
          */
         public static readonly Dictionary<string, string> Required_Requisites = new Dictionary<string, string>
         {
@@ -60,9 +62,10 @@ namespace QRCode
         #region Additional_Requisites
 
         /*
-         * Summury
+         *  <summary>
          * Additional_Requisites
          * Дополнительные реквизиты
+         *  </summary>
          */
         public static readonly Dictionary<string, string> Additional_Requisites = new Dictionary<string, string>
         {
@@ -119,9 +122,10 @@ namespace QRCode
         #region Designation
 
         /*
-         * Summury
+         *  <summary>
          * Dictionary designation aliases
          * Словарь обозначений псевдомимов
+         *  </summary>
          */
         public static readonly Dictionary<string, Dictionary<string, string>> Dictionary_Block = new Dictionary<string, Dictionary<string, string>>
         {

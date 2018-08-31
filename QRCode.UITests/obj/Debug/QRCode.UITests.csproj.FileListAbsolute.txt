@@ -2,7 +2,6 @@
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/bin/Debug/QRCode.UITests.pdb
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/bin/Debug/nunit.framework.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/bin/Debug/Xamarin.UITest.dll
-/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/obj/Debug/QRCode.UITests.csprojAssemblyReference.cache
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/obj/Debug/QRCode.UITests.csproj.CoreCompileInputs.cache
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/obj/Debug/QRCode.UITests.csproj.CopyComplete
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/obj/Debug/QRCode.UITests.dll

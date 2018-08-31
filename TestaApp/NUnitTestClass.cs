@@ -8,7 +8,6 @@ namespace TestaApp
     [TestFixture]
     public class NUnitTestClass
     {
-        //private IList<byte[]> list_Bite;
         private byte[] bytes_QRCode;
         private static Dictionary<string, string> source;
 
@@ -65,7 +64,7 @@ namespace TestaApp
                 Assert.AreNotEqual(0, dictionary.Count);
                 source = dictionary;
             }
-            catch (Exception exception)
+            catch
             {
                 Assert.Fail();
             }

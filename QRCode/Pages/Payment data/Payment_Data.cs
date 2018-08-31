@@ -62,15 +62,17 @@ namespace QRCode
             var body = Function.Get_HTML_Props_Table(dictionary);
 
             /*
-             * Summury
+             *  <summary>
              * Реализация интерфейса Email
+             *  </summary>
              */
             //var email = DependencyService.Get<R_Email>();
             //email.OpenEmail(body); // Открыть почту
 
             /*
-             * Summury
+             *  <summary>
              * Библиотека Xam.Plugins.Messaging
+             *  </summary>
              */
             var email = CrossMessaging.Current.EmailMessenger;
 

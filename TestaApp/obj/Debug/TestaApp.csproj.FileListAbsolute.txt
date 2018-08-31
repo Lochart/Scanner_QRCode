@@ -102,7 +102,6 @@
 /Volumes/Macintosh HD/Git/Scanner_QRCode/TestaApp/bin/Debug/QRCode.pdb
 /Volumes/Macintosh HD/Git/Scanner_QRCode/TestaApp/bin/Debug/nunit.framework.xml
 /Volumes/Macintosh HD/Git/Scanner_QRCode/TestaApp/bin/Debug/Xamarin.UITest.xml
-/Volumes/Macintosh HD/Git/Scanner_QRCode/TestaApp/obj/Debug/TestaApp.csprojAssemblyReference.cache
 /Volumes/Macintosh HD/Git/Scanner_QRCode/TestaApp/obj/Debug/TestaApp.csproj.CoreCompileInputs.cache
 /Volumes/Macintosh HD/Git/Scanner_QRCode/TestaApp/obj/Debug/TestaApp.csproj.CopyComplete
 /Volumes/Macintosh HD/Git/Scanner_QRCode/TestaApp/obj/Debug/TestaApp.dll

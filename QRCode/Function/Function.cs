@@ -24,8 +24,6 @@ namespace QRCode
         /// 
         /// Алгоритм в функции был переписан из алгоритма для Java: https://stackoverflow.com/a/4981787/5909792
         /// </summary>
-        /// <param name="result"></param>
-        /// <returns>byte[]</returns>
         public static byte[] Get_Bytes_Result(Result result)
        {
             var byteSegments = (IList<byte[]>) result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
@@ -44,27 +42,24 @@ namespace QRCode
            return resultBytes;
        }
 
-       #endregion
+        #endregion
 
-       #region Parsing_Text
+        #region Parsing_Text
 
-       /*
-        * Summury
-        * Parsing text from the received QRCode
-        * Парснг текста полученный из QRCode
-        * 
-        * char |
-        * char =
-        * dictionary <string, string>
-        */
+        /*
+         * <summary>
+         * Parsing text from the received QRCode
+         * Парснг текста полученный из QRCode
+         * 
+         * char |
+         * char =
+         * dictionary <string, string>
+         * </summary>
+         */
         public static Dictionary<string, string> Parsing_Text(byte[] bytes)
         {
             try
-            {
-                var utf8 = Encoding.GetEncoding("utf8");
-                var win1251 = Encoding.GetEncoding("windows1251");
-                var koi8 = Encoding.GetEncoding("koi8r");
-
+            {            
                 var num_Byte = bytes[6];
                 // Набор кодированных знаков, который используется для представления данных платежа.
                 // Задается в виде цифрового признака кодированного набора:
@@ -81,14 +76,17 @@ namespace QRCode
                 switch (num_Byte)
                 {
                     case IS_WIN1251:
+						var win1251 = Encoding.GetEncoding("windows1251");
                         text = win1251.GetString(bytes);
                         numencoding = "numencodingWIN1251";
                         break;
                     case IS_UTF8:
+                        var utf8 = Encoding.GetEncoding("utf8");
                         text = utf8.GetString(bytes);
                         numencoding = "numencodingUTF-8";
                         break;
                     case IS_КОI8_R:
+						var koi8 = Encoding.GetEncoding("koi8r");
                         text = koi8.GetString(bytes);
                         numencoding = "numencodingKOI8-R";
                         break;
@@ -148,9 +146,10 @@ namespace QRCode
         #region Props_Field
 
         /*
-         * Summury
+         *  <summary>
          * Add props field in grid
          * Добавление реквезитов полей в таблицу
+         *  </summary>
          */
         public static int Props_Field(int row, Dictionary<string, string> source,
                                 Dictionary<string, string> value, string key,
@@ -203,9 +202,10 @@ namespace QRCode
         #region Create_Header_Block_Props
 
         /*
-         * Summury
+         *  <summary>
          * Create view header block зrops
          * Содаем вид заголовка блока реквезита
+         *  </summary>
          */
         private static void Create_Header_Block_Props(int row, string text, Grid grid)
         {
@@ -233,9 +233,10 @@ namespace QRCode
         #region Get_HTML_Props_Table
 
         /*
-         * Summury
+         *  <summary>
          * Get html props table
          * Получаем html реквезит таблицы
+         *  </summary>
          */
         public static string Get_HTML_Props_Table(Dictionary<string, string> source)
         {

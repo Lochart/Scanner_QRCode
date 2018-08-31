@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{7542FAEF-213A-4A2A-876C-72BA54035C5B}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
   <MonoDevelop.Ide.ItemProperties.Tests.TestaApp PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.QRCode.UITests PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TestaApp/NUnitTestClass.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="QRCode/Style/Structure_Button/Structure_Button.cs" Line="9" Column="30" />
       <File FileName="QRCode.iOS/AppDelegate.cs" Line="1" Column="1" />
@@ -9,25 +9,18 @@
       <File FileName="QRCode/Style/Structure_Grid/Structure_Grid.cs" Line="10" Column="22" />
       <File FileName="TestaApp/Tests.cs" Line="11" Column="32" />
       <File FileName="TestaApp/AppInitializer.cs" Line="34" Column="1" />
-      <File FileName="TestaApp/NUnitTestClass.cs" Line="13" Column="9" />
+      <File FileName="TestaApp/NUnitTestClass.cs" Line="16" Column="10" />
       <File FileName="QRCode.UITests/AppInitializer.cs" Line="13" Column="1" />
       <File FileName="QRCode/Pages/Scanner/Scanner.cs" Line="17" Column="6" />
-      <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="33" Column="1" />
+      <File FileName="QRCode/Pages/Payment data/Payment_Data.cs" Line="75" Column="24" />
       <File FileName="QRCode/Renderer/R_Email.cs" Line="1" Column="1" />
       <File FileName="QRCode/Renderer/R_DisplayAlert.cs" Line="1" Column="1" />
-      <File FileName="QRCode/Function/Function.cs" Line="272" Column="19" />
-      <File FileName="QRCode/Dictionary/Dictionary_Designation.cs" Line="38" Column="11" />
+      <File FileName="QRCode/Function/Function.cs" Line="239" Column="15" />
+      <File FileName="QRCode/Dictionary/Dictionary_Designation.cs" Line="128" Column="15" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="QRCode" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.QRCode.iOS automaticSigning="False" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
