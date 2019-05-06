@@ -1,19 +1,11 @@
-﻿using System;
-using Xamarin.UITest;
-using Xamarin.UITest.Queries;
+﻿using Xamarin.UITest;
 
 namespace QRCode.UITests
 {
-    public class AppInitializer
+    public static class AppInitializer
     {
-        public static IApp StartApp(Platform platform)
-        {
-            if (platform == Platform.Android)
-            {
-                return ConfigureApp.Android.StartApp();
-            }
-
-            return ConfigureApp.iOS.StartApp();
-        }
+        public static IApp StartApp(Platform platform) => 
+            platform == Platform.Android ? ConfigureApp.Android.StartApp() : 
+            (IApp)ConfigureApp.iOS.StartApp();
     }
 }

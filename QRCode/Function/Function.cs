@@ -8,59 +8,52 @@ using ZXing;
 
 namespace QRCode
 {
-    public static class Function
+    public class Function : Models
     {
-        public static void Display_Alert(
-            string header, string message, string button)
-        {
-            DependencyService.Get<R_DisplayAlert>().ShowAlert(header, message, button);
-        }
-
-        #region Get_Bytes_Result
-
         /// <summary>
-        /// Функция для получения напрямую массива байтов из ZXing.Result.
-        /// Стандартная реализация ZXing.Result отдает строку, но не байты, по которым строка была создана.
-        /// 
-        /// Алгоритм в функции был переписан из алгоритма для Java: https://stackoverflow.com/a/4981787/5909792
+        /// Displaies the alert.
         /// </summary>
-        public static byte[] Get_Bytes_Result(Result result)
-       {
-            var byteSegments = (IList<byte[]>) result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
+        /// <param name="header">Header.</param>
+        /// <param name="message">Message.</param>
+        /// <param name="button">Button.</param>
+        public void DisplayAlert(string header, string message, string button) => 
+            DependencyService.Get<IDisplayAlert>().ShowAlert(header, message, button);
+            
+        /// <summary>
+        /// Gets the bytes result. - Получение массива байтов из ZXing.Result.
+        /// </summary>
+        /// <returns>The bytes result.</returns>
+        /// <param name="result">Result.</param>
+        public byte[] GetBytesResult(Result result)
+        {
+            var byteSegments = (IList<byte[]>)result.ResultMetadata[ResultMetadataType.BYTE_SEGMENTS];
 
             int totalLength = 0;
-           foreach (byte[] bs in byteSegments)
-               totalLength += bs.Length;
-          
-           byte[] resultBytes = new byte[totalLength];
-           int i = 0;
 
-           foreach (byte[] bs in byteSegments)
-               foreach (byte b in bs)
-                   resultBytes[i++] = b;
-           
-           return resultBytes;
-       }
+            foreach (byte[] bs in byteSegments)
+                totalLength += bs.Length;
 
-        #endregion
+            byte[] resultBytes = new byte[totalLength];
 
-        #region Parsing_Text
+            int i = 0;
 
-        /*
-         * <summary>
-         * Parsing text from the received QRCode
-         * Парснг текста полученный из QRCode
-         * 
-         * char |
-         * char =
-         * dictionary <string, string>
-         * </summary>
-         */
-        public static Dictionary<string, string> Parsing_Text(byte[] bytes)
+            foreach (byte[] bs in byteSegments)
+                foreach (byte b in bs)
+                    resultBytes[i++] = b;
+
+            return resultBytes;
+        }
+
+        /// <summary>
+        /// Parsings the text. - Парснг текста полученный из QRCode
+        /// </summary>
+        /// <returns>dictionary</returns>
+        /// <param name="bytes">Bytes.</param>
+        public Dictionary<string, string> ParsingText(byte[] bytes)
         {
             try
             {            
-                var num_Byte = bytes[6];
+                var numberByte = bytes[6];
                 // Набор кодированных знаков, который используется для представления данных платежа.
                 // Задается в виде цифрового признака кодированного набора:
                 //    1 – WIN1251
@@ -73,7 +66,7 @@ namespace QRCode
                 string text;
                 string numencoding;
 
-                switch (num_Byte)
+                switch (numberByte)
                 {
                     case IS_WIN1251:
 						var win1251 = Encoding.GetEncoding("windows1251");
@@ -120,6 +113,7 @@ namespace QRCode
                 text = text.Substring(8);
 
                 var items = text.Split(new[] { sep }, StringSplitOptions.None);
+
                 foreach (var item in items)
                 {
                     var pair = item.Split('=');
@@ -141,22 +135,20 @@ namespace QRCode
             }
         }
 
-        #endregion
-
-        #region Props_Field
-
-        /*
-         *  <summary>
-         * Add props field in grid
-         * Добавление реквезитов полей в таблицу
-         *  </summary>
-         */
-        public static int Props_Field(int row, Dictionary<string, string> source,
-                                Dictionary<string, string> value, string key,
-                                Grid grid)
+        /// <summary>
+        /// Propertieses the field. - Реквезит полей
+        /// </summary>
+        /// <returns>The field.</returns>
+        /// <param name="row">Row.</param>
+        /// <param name="source">Source.</param>
+        /// <param name="value">Value.</param>
+        /// <param name="key">Key.</param>
+        /// <param name="grid">Grid.</param>
+        public int PropsField(int row, Dictionary<string, string> source,
+            Dictionary<string, string> value, string key, Grid grid)
         {
             // Заголовок блока
-            Create_Header_Block_Props(row, key, grid);
+            CreateHeaderBlockProps(row, key, grid);
             row++;
 
             foreach (var item in source)
@@ -165,30 +157,30 @@ namespace QRCode
                 if (!value.ContainsKey(item.Key))
                     continue;
 
-                var row_Definition = new RowDefinition();
-                row_Definition.Height = new GridLength(1, GridUnitType.Auto);
+                var row_Definition = new RowDefinition
+                {
+                    Height = new GridLength(1, GridUnitType.Auto)
+                };
                 grid.RowDefinitions.Add(row_Definition);
 
-                var view_Title = new StackLayout();
-                view_Title.BackgroundColor = Color.White;
-                view_Title.Padding = 4;
+                var view_Title = new StackLayout
+                {
+                    BackgroundColor = Color.White,
+                    Padding = 4
+                };
 
-                var view_Caption = new StackLayout();
-                view_Caption.BackgroundColor = Color.White;
-                view_Caption.Padding = 4;
+                var view_Caption = new StackLayout
+                {
+                    BackgroundColor = Color.White,
+                    Padding = 4
+                };
 
                 var text = value.First(x => x.Key == item.Key);
 
-                var label = new Structure_Label();
+                var label = new StructureLabel();
 
-                // Название поле 
-                var title = label.Custom_Label(text.Value);
-
-                // Значение поле 
-                var caption = label.Custom_Label(item.Value);
-
-                view_Title.Children.Add(title);
-                view_Caption.Children.Add(caption);
+                view_Title.Children.Add(label.StyleLabel(text.Value)); // Название полей 
+                view_Caption.Children.Add(label.StyleLabel(item.Value)); // Значение поля
                 grid.Children.Add(view_Title, 0, row);
                 grid.Children.Add(view_Caption, 1, row);
                 row++;
@@ -197,30 +189,29 @@ namespace QRCode
             return row;
         }
 
-        #endregion
-
-        #region Create_Header_Block_Props
-
-        /*
-         *  <summary>
-         * Create view header block зrops
-         * Содаем вид заголовка блока реквезита
-         *  </summary>
-         */
-        private static void Create_Header_Block_Props(int row, string text, Grid grid)
+        /// <summary>
+        /// Creates the header block properties. - Создаем вид заголовка блока 
+        /// реквезита
+        /// </summary>
+        /// <param name="row">Row.</param>
+        /// <param name="text">Text.</param>
+        /// <param name="grid">Grid.</param>
+        private static void CreateHeaderBlockProps(int row, string text, Grid grid)
         {
-            var view_Header = new StackLayout();
-            view_Header.BackgroundColor = Color.White;
-            view_Header.Padding = 4;
+            var viewHeader = new StackLayout
+            {
+                BackgroundColor = Color.White,
+                Padding = 4
+            };
 
-            var label = new Structure_Label();
+            var label = new StructureLabel();
 
-            var header = label.Custom_Label(text);
+            var header = label.StyleLabel(text);
             header.HorizontalTextAlignment = TextAlignment.Center;
 
-            view_Header.Children.Add(header);
-            grid.Children.Add(view_Header, 0, row);
-            Grid.SetColumnSpan(view_Header, 2); // обьединяем две ячейки
+            viewHeader.Children.Add(header);
+            grid.Children.Add(viewHeader, 0, row);
+            Grid.SetColumnSpan(viewHeader, 2);
 
             grid.RowDefinitions.Add(new RowDefinition
             {
@@ -228,38 +219,30 @@ namespace QRCode
             });
         }
 
-        #endregion
-
-        #region Get_HTML_Props_Table
-
-        /*
-         *  <summary>
-         * Get html props table
-         * Получаем html реквезит таблицы
-         *  </summary>
-         */
-        public static string Get_HTML_Props_Table(Dictionary<string, string> source)
+        /// <summary>
+        /// Gets the HTMLP rops table. - Получаем html реквезит таблицы
+        /// </summary>
+        /// <returns>The HTMLP rops table.</returns>
+        /// <param name="source">Source.</param>
+        public string GetHTMLPropsTable(Dictionary<string, string> source)
         {
             var body = "<table>";
 
-            foreach (var item in Dictionary_Designation.Dictionary_Block){
-
-                var title = item.Key;
+            foreach (var item in DictionaryDesignation.DictionaryBlock)
+            {
                 var value = item.Value;
 
-                body += "<tr><th colspan='2'> " + title + " </th></tr>\n";
+                body += "<tr><th colspan='2'> " + item.Key + " </th></tr>\n";
 
                 foreach (var field in source)
                 {
                     if (!value.ContainsKey(field.Key))
                         continue;
 
-                    var caption_Text = value[field.Key];
-
                     // Название поле и значение поле
-                    body += String.Format(
-                        "<tr><td> {0}  </td><td> {1} </td></tr>\n", 
-                        caption_Text, field.Value);
+                    body += string.Format(
+                        "<tr><td> {0}  </td><td> {1} </td></tr>\n",
+                        value[field.Key], field.Value);
                 }
             }
 
@@ -267,8 +250,6 @@ namespace QRCode
             Debug.WriteLine(body);
             return body;
         }
-
-        #endregion
     }
 }
 

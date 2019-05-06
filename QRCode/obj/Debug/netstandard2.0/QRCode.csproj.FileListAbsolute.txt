@@ -1,6 +1,9 @@
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/bin/Debug/netstandard2.0/QRCode.deps.json
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/bin/Debug/netstandard2.0/QRCode.dll
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/bin/Debug/netstandard2.0/QRCode.pdb
+/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.csprojAssemblyReference.cache
+/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/obj/Debug/netstandard2.0/Pages/Payment data/PaymentDataPage.xaml.g.cs
+/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/obj/Debug/netstandard2.0/Pages/Scanner/ScannerPage.xaml.g.cs
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.csproj.CoreCompileInputs.cache
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.AssemblyInfoInputs.cache
 /Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode/obj/Debug/netstandard2.0/QRCode.AssemblyInfo.cs

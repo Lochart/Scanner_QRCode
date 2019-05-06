@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "fbb2371b47b21fc39cb4deb743569e75d5a8785f"
+    "signature": "0c5da9d722db8d82772ecec48528200f65e77544"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,7 +11,7 @@
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "Xam.Plugins.Messaging": "5.2.0",
-          "Xamarin.Forms": "3.1.0.697729",
+          "Xamarin.Forms": "3.6.0.344457",
           "ZXing.Net.Mobile": "2.3.2",
           "ZXing.Net.Mobile.Forms": "2.3.2"
         },
@@ -40,7 +40,7 @@
           }
         }
       },
-      "Xamarin.Forms/3.1.0.697729": {
+      "Xamarin.Forms/3.6.0.344457": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
@@ -74,7 +74,7 @@
       },
       "ZXing.Net.Mobile.Forms/2.3.2": {
         "dependencies": {
-          "Xamarin.Forms": "3.1.0.697729",
+          "Xamarin.Forms": "3.6.0.344457",
           "ZXing.Net.Mobile": "2.3.2"
         },
         "runtime": {
@@ -95,42 +95,42 @@
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "sha512-bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "path": "microsoft.netcore.platforms/1.1.0",
       "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "sha512": "sha512-R73gEjqCkI2Nw/IlN8QvcgPNklqQiPowp47JwvW0Bnp/RZnjN4UrJwEvWVJWRK1MsQ+HIfGe9i4aQlfK+ei9jA==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
     "Xam.Plugins.Messaging/5.2.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-oTBg4tZjkkLHuUuXaybC/pwi0SugrJeyZ7Nq60IAxBliO7FMYaPq9mmmPQvCAEwEhtWaZAjbBzwG/I71CcQrmA==",
+      "sha512": "sha512-usjiQldDRyK28EVW7DJ8gfzuRBFgIJZbWvQMn6H1oGsBU28Et7WirLQLGt4U7H6DyXSCyfLIqZgRlgXbhp5fLg==",
       "path": "xam.plugins.messaging/5.2.0",
       "hashPath": "xam.plugins.messaging.5.2.0.nupkg.sha512"
     },
-    "Xamarin.Forms/3.1.0.697729": {
+    "Xamarin.Forms/3.6.0.344457": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YlFOM9u8onIRxJwYJ3l+O0wFKqzzrDjDrgnoBr1rct+eaQKU77vFydxvTP+WxYlYzR14hYvyLNC65L84+6ke6w==",
-      "path": "xamarin.forms/3.1.0.697729",
-      "hashPath": "xamarin.forms.3.1.0.697729.nupkg.sha512"
+      "sha512": "sha512-YTPYiRg5q8Q1AgkjX9mx2/0wfCNyoSfztvvWw9HY4qM1lmOgkAxAbbtY8zi3fCPUXhfZrCAgRvJYNS8VM519kQ==",
+      "path": "xamarin.forms/3.6.0.344457",
+      "hashPath": "xamarin.forms.3.6.0.344457.nupkg.sha512"
     },
     "ZXing.Net.Mobile/2.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8EQ8O2Cz+nREH5BZTSRb4eHLmQ8Y/aJvt5R2syaE3F2GTNeE1G5/HH3wjgcPimh/PTg7i1rVc1JvyV77qbWhTQ==",
+      "sha512": "sha512-HcEddG4FSJ2lcg+DSbe7fghTArwtOTGkEQqXR45ultZ375bim39I5SorPWJTXhc69PqXhXQcOcInUqfJkaa7sw==",
       "path": "zxing.net.mobile/2.3.2",
       "hashPath": "zxing.net.mobile.2.3.2.nupkg.sha512"
     },
     "ZXing.Net.Mobile.Forms/2.3.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9kW+Trsxa1sijYeRephoQYTfXKAvdposMfv9Rvg2vhnUp9Pp3M67YzhsSOAhkBPdhZXSx6CiTpnJCBavatbm1w==",
+      "sha512": "sha512-8RSlitY0OP1YniFP9OES81Rqcw5eCBPEwfRoo4l0N8sGGEXx7i0OX2Qhexb8LjFEj0TnjNOoEl6w8EX+7R3cJQ==",
       "path": "zxing.net.mobile.forms/2.3.2",
       "hashPath": "zxing.net.mobile.forms.2.3.2.nupkg.sha512"
     }

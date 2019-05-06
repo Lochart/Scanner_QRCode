@@ -5,11 +5,13 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace QRCode
 {
-    public partial class App : Application
+    public class App : Application
     {
         public App()
         {
-            MainPage = new NavigationPage(new Scanner());
+            var page = new NavigationPage(new ScannerPage());
+               
+            MainPage = page;
         }
 
         protected override void OnStart()

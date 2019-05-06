@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="QRCode.PaymentDataPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout 
+                Padding="16"
+                Spacing="16">
+                <Grid x:Name="Table"
+                      ColumnSpacing="1"
+                      RowSpacing="1"
+                      BackgroundColor="Black"
+                      Padding="1">
+                </Grid>
+                <StackLayout
+                    Orientation="Horizontal"
+                    Spacing="16">
+                    <Button x:Name="ButtonEmail"
+                            ClassId="Email"
+                            Text="Назад"
+                            TextColor="White"
+                            FontSize="14"
+                            BackgroundColor="Blue"
+                            CornerRadius="25"
+                            Command="{Binding EventsCommand}"
+                            CommandParameter="{x:Reference ButtonEmail}"/>
+                    <Button x:Name="ButtonBack"
+                            ClassId="Back"
+                            Text="Отправить на email"
+                            TextColor="White"
+                            FontSize="14"
+                            BackgroundColor="Blue"
+                            CornerRadius="25"
+                            Command="{Binding EventsCommand}"
+                            CommandParameter="{x:Reference ButtonBack}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

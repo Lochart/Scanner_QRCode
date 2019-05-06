@@ -8,12 +8,14 @@ namespace TestaApp
     [TestFixture]
     public class NUnitTestClass
     {
-        private byte[] bytes_QRCode;
+        private byte[] bytesQRCode;
         private static Dictionary<string, string> source;
+        private readonly Function function = new Function();
 
         [SetUp]
-        public void Data_List_Bite()
+        public void DataListBite()
         {
+            // Разобранная картинка в байтах
             byte[] bytes = { 83, 84, 48, 48,  48, 49, 50, 124, 78, 97, 109,
                 101, 61, 208, 158, 208, 158, 208, 158, 34, 208, 163, 208, 150,
                 208, 173, 208, 154, 34, 208, 148, 208, 190, 208, 188, 208, 190,
@@ -48,7 +50,7 @@ namespace TestaApp
                 150, 208, 154, 208, 165
             };
 
-            bytes_QRCode = bytes;
+            bytesQRCode = bytes;
         }
 
         [Test]
@@ -56,7 +58,7 @@ namespace TestaApp
         {
             try
             {
-                var dictionary = Function.Parsing_Text(bytes_QRCode);
+                var dictionary = function.ParsingText(bytesQRCode);
 
                 if (dictionary.Count == 0)
                     Assert.AreEqual(0, dictionary.Count);
@@ -71,11 +73,11 @@ namespace TestaApp
         }
 
         [Test]
-        public void Get_HTML_Props_Table()
+        public void GetHTMLPropsTable()
         {
             try
             {
-                var result = Function.Get_HTML_Props_Table(source);
+                var result = function.GetHTMLPropsTable(source);
 
                 if(string.IsNullOrEmpty(result))
                     Assert.IsNullOrEmpty(result);

@@ -84,10 +84,11 @@
   },
   "libraries": {
     "NUnit/2.6.4": {
-      "sha512": "cmSPvaCMRSP0DI19FP1Liw9DyJY3E/vOY1OrVaeJBZpZFWHkmT3fB9ngGWnZX/ftvA7zJEbghEaw3Yd+u4YFAw==",
+      "sha512": "4FEMBTZNUS2BDYvFdBRiy47u8GtFEB+BEG9Uif2fmYfQcFAyDUMGxBybx2/hhnNajjVEvgtJbcQWYXzwvbmWAA==",
       "type": "package",
       "path": "nunit/2.6.4",
       "files": [
+        ".signature.p7s",
         "lib/nunit.framework.dll",
         "lib/nunit.framework.xml",
         "license.txt",
@@ -96,10 +97,11 @@
       ]
     },
     "Xamarin.UITest/2.2.2": {
-      "sha512": "es+FjpRrmwkZODSwRjTcA0SnQOyFsNf4FxOAmZg/Ns/noOD/A2DztIPNUNIain3qSvuXoxIuSgXXfG5QAEMLmw==",
+      "sha512": "CtH/GK1DgSYTXerZBnjX7IBRd2+KX6sVaFIA+hJ3HNAVHKj50qpjefRVwX7SJjwY+BoFLm5aj7g1oY3ZvkGwHg==",
       "type": "package",
       "path": "xamarin.uitest/2.2.2",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "Xamarin.UITest-License.rtf",
         "lib/net45/Xamarin.UITest.dll",
@@ -120,25 +122,25 @@
     ]
   },
   "packageFolders": {
-    "/Users/nikolay/.nuget/packages/": {}
+    "/Users/dante/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/QRCode.UITests.csproj",
+      "projectUniqueName": "/Volumes/Macintosh HD/Bitbucket/ScannerQRCode/QRCode.UITests/QRCode.UITests.csproj",
       "projectName": "QRCode.UITests",
-      "projectPath": "/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/QRCode.UITests.csproj",
-      "packagesPath": "/Users/nikolay/.nuget/packages/",
-      "outputPath": "/Volumes/Macintosh HD/Git/Scanner_QRCode/QRCode.UITests/obj",
+      "projectPath": "/Volumes/Macintosh HD/Bitbucket/ScannerQRCode/QRCode.UITests/QRCode.UITests.csproj",
+      "packagesPath": "/Users/dante/.nuget/packages/",
+      "outputPath": "/Volumes/Macintosh HD/Bitbucket/ScannerQRCode/QRCode.UITests/obj/",
       "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/nikolay/.config/NuGet/NuGet.Config"
+        "/Users/dante/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net461"
       ],
       "sources": {
-        "/Users/nikolay/Projects/DownloadManager/DownloadManager.NuGet": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -152,11 +154,11 @@
         "dependencies": {
           "NUnit": {
             "target": "Package",
-            "version": "2.6.4"
+            "version": "[2.6.4, )"
           },
           "Xamarin.UITest": {
             "target": "Package",
-            "version": "2.2.2"
+            "version": "[2.2.2, )"
           }
         }
       }

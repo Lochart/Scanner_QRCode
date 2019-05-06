@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
-    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.3.2" />
-    <PackageReference Include="ZXing.Net.Mobile" Version="2.3.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
     <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.3.2" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.3.2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="App.xaml.cs" />
@@ -20,11 +20,11 @@
     <Folder Include="Pages\Scanner\" />
     <Folder Include="Pages\Payment data\" />
     <Folder Include="Style\" />
-    <Folder Include="Style\Structure_Grid\" />
     <Folder Include="Function\" />
-    <Folder Include="Style\Structure_Label\" />
+    <Folder Include="Style\StructureLabel\" />
     <Folder Include="Dictionary\" />
     <Folder Include="Renderer\" />
-    <Folder Include="Style\Structure_Button\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>

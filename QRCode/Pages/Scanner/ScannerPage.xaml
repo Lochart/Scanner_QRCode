@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:QRCode;assembly=QRCode"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="QRCode.ScannerPage">
+    <ContentPage.Content>
+        <AbsoluteLayout 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="Transparent">
+            <forms:ZXingScannerView 
+                x:Name="ScannerView"
+                IsScanning="{Binding IsScanning}" 
+                IsAnalyzing="{Binding IsAnalyzing}"
+                Result="{Binding Result, Mode=TwoWay}"
+                ScanResultCommand="{Binding QRScanResultCommand}"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+            <Image Source="expand.png"
+                   WidthRequest="200"
+                   HeightRequest="200"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
